@@ -1,6 +1,6 @@
 import React from 'react';
 import ToDo from '../ToDo/ToDo';
-
+import ContactCardList from '../ContactCardList/ContactCardList';
 
 /*class App extends React.Component {
   render() {
@@ -23,6 +23,9 @@ function App() {
       <ToDo />
       <ToDo />
       <ToDo />
+      <ContactCardList contact={{name: 'John Smith', phone: '345633', email: 'johnsmith@gmail.com'}} />
+      <ContactCardList contact={{name: 'Jan Kowalski', phone: '654321', email: 'jankowalski@gmail.com'}} />
+      <ContactCardList contact={{name: 'Klaus Miller', phone: '918273', email: 'klausmiller@gmail.com'}} />
     </div>
   )
 }
