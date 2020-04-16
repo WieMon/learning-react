@@ -1,6 +1,8 @@
 import React from 'react';
 import ToDo from '../ToDo/ToDo';
 import Joke from '../Joke/Joke';
+//import { ProgressPlugin } from 'webpack';
+import jokesData from '../Joke/jokesData';
 
 /*class App extends React.Component {
   render() {
@@ -17,15 +19,16 @@ import Joke from '../Joke/Joke';
 }*/
 
 function App() {
+  const jokeComponents = jokesData.map(joke => 
+      <Joke key={joke.id} question={joke.question} answer={joke.answer} />)
+
   return (
     <div>
       <ToDo />
       <ToDo />
       <ToDo />
       <ToDo />
-      <Joke question="Question 1" answer="Answer 1" />
-      <Joke />
-      <Joke question="Question 3" answer="Answer 3" />
+      {jokeComponents}
     </div>
   )
 }
