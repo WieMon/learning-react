@@ -1,26 +1,37 @@
 import React from 'react';
-import ToDo from '../ToDo/ToDo';
-import Joke from '../Joke/Joke';
-import jokesData from '../Joke/jokesData';
-import ContactCardList from '../ContactCardList/ContactCardList';
-import Product from '../Product/Product';
-import productsData from '../../data/vschoolProducts';
-import todosData from '../../data/todosData';
-/*class App extends React.Component {
+//import ToDo from '../ToDo/ToDo';
+//import Joke from '../Joke/Joke';
+//import jokesData from '../Joke/jokesData';
+//import ContactCardList from '../ContactCardList/ContactCardList';
+//import Product from '../Product/Product';
+//import productsData from '../../data/vschoolProducts';
+//import todosData from '../../data/todosData';
+
+class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      isLoggedIn: false
+    }
+  }
   render() {
+    let wordDisplay
+
+    if (this.state.isLoggedIn) { // isLoggedIn is boolean so === true can be deleted
+      wordDisplay = 'in'
+    } else {
+      wordDisplay = 'out'
+    }
+
     return (
       <div>
-        <ul>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-        </ul>
+        <h1>You are currently logged {wordDisplay}</h1>
       </div>
     )
   }
-}*/
+}
 
-function App() {
+/*function App() {
   const toDos = todosData.map(item => <ToDo key={item.id} item={item} />)
   const jokeComponents = jokesData.map(joke => 
     <Joke key={joke.id} question={joke.question} answer={joke.answer} />)
@@ -49,6 +60,6 @@ function App() {
       </div>
     </div>
   )
-}
+}*/
 
 export default App;
