@@ -1,12 +1,14 @@
 import React from 'react';
 import styles from '../ToDo/ToDo.scss'
 
-function ToDo() {
+//import { ProgressPlugin } from 'webpack';
+
+function ToDo(props) {
   return (
     <div className={styles.list}>
       <div className={styles.item}>
-        <input type="checkbox" />
-        <p>Placeholder text here</p>
+        <input type="checkbox" checked={props.item.completed} />
+        <p>{props.item.text}</p>
       </div>
     </div>
   )
