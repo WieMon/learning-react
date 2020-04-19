@@ -25,6 +25,10 @@ class App extends React.Component {
       wordDisplay = 'out'
     }
 
+    function handleClick() {
+      console.log('I was clicked');
+    }
+
     return (
       <div>
         <div>
@@ -32,6 +36,11 @@ class App extends React.Component {
         </div>
         <div className="todo-list">
           {todoItem}
+        </div>
+        <div>
+          <img onMouseOver={() => console.log('Over')} src='https://images.pexels.com/photos/301448/pexels-photo-301448.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500' />
+          <button onClick={handleClick}>Click me</button>
+
         </div>
       </div>
     )
