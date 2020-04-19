@@ -12,9 +12,20 @@ class App extends React.Component {
     super()
     this.state = {
       isLoggedIn: false,
-      todos: todosData
+      todos: todosData,
+      count:0
     }
+    this.handleClickTwo = this.handleClickTwo.bind(this)
   }
+
+handleClickTwo() {
+  this.setState(prevState => {
+    return {
+      count: prevState.count + 1
+    }
+  })
+}
+
   render() {
     let wordDisplay
     const todoItem = this.state.todos.map(item => <ToDo key={item.id} item={item} />)
@@ -25,7 +36,7 @@ class App extends React.Component {
       wordDisplay = 'out'
     }
 
-    function handleClick() {
+    function handleClickOne() {
       console.log('I was clicked');
     }
 
@@ -39,8 +50,11 @@ class App extends React.Component {
         </div>
         <div>
           <img onMouseOver={() => console.log('Over')} src='https://images.pexels.com/photos/301448/pexels-photo-301448.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500' />
-          <button onClick={handleClick}>Click me</button>
-
+          <button onClick={handleClickOne}>Click me</button>
+        </div>
+        <div>
+          <h1>{this.state.count}</h1>
+          <button onClick={this.handleClickTwo}>Change!</button>
         </div>
       </div>
     )
