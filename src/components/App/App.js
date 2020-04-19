@@ -1,21 +1,23 @@
 import React from 'react';
-//import ToDo from '../ToDo/ToDo';
+import ToDo from '../ToDo/ToDo';
 //import Joke from '../Joke/Joke';
 //import jokesData from '../Joke/jokesData';
 //import ContactCardList from '../ContactCardList/ContactCardList';
 //import Product from '../Product/Product';
 //import productsData from '../../data/vschoolProducts';
-//import todosData from '../../data/todosData';
+import todosData from '../../data/todosData';
 
 class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      isLoggedIn: false
+      isLoggedIn: false,
+      todos: todosData
     }
   }
   render() {
     let wordDisplay
+    const todoItem = this.state.todos.map(item => <ToDo key={item.id} item={item} />)
 
     if (this.state.isLoggedIn) { // isLoggedIn is boolean so === true can be deleted
       wordDisplay = 'in'
@@ -25,7 +27,12 @@ class App extends React.Component {
 
     return (
       <div>
-        <h1>You are currently logged {wordDisplay}</h1>
+        <div>
+          <h1>You are currently logged {wordDisplay}</h1>
+        </div>
+        <div className="todo-list">
+          {todoItem}
+        </div>
       </div>
     )
   }
